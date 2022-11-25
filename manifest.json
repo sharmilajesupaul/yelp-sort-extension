@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Yelp Sort By Newest First",
+  "description": "Set the default sort on Yelp to Newest First",
+  "version": "1.0",
+  "content_scripts": [
+    {
+      "matches": ["*://*/biz/*"],
+      "js": ["content-script.js"]
+    }
+  ],
+  "permissions": ["activeTab"],
+  "icons": {
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
