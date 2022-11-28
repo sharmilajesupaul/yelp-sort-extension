@@ -25,5 +25,5 @@
     insertParam('sort_by', 'date_desc');
   }
 
-  document.onload = sortByDateDesc();
+  sortByDateDesc();
 })(document);
