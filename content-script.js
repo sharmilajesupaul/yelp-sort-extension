@@ -1,5 +1,6 @@
 ((document) => {
   const params = new URLSearchParams(document.location.search);
+  const yelpPageRegex = /yelp\./; // account for yelp.com, yelp.ca, etc.
 
   function insertParam(key, value) {
     params.set(key, value);
@@ -7,15 +8,11 @@
   }
 
   function alreadySortedByDateDesc() {
-    if (params.has('sort_by')) {
-      return params.get('sort_by') === 'date_desc';
-    }
-    return false;
+    return params.has('sort_by') && params.get('sort_by') === 'date_desc';
   }
 
   function onYelpPage() {
-    // account for international yelp sites
-    return document.location.hostname.startsWith('www.yelp.');
+    return yelpPageRegex.test(document.location.hostname);
   }
 
   function sortByDateDesc() {
